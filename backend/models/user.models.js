@@ -30,7 +30,7 @@ const userSchema=new mongoose.Schema({
         type:String,
     },
     votedFor:{
-        type:Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Vote",
     }
 },
@@ -46,7 +46,7 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.isPassWordCorrect=async function (password) {
     return await bcrypt.compare(password,this.password);
 }
-userSchema.methods.generateAccessToekn=function(){
+userSchema.methods.generateAccessToken=function(){
     return jwt.sign(
         {
             _id:this._id,
