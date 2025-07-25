@@ -21,4 +21,4 @@ const optionSchema=new mongoose.Schema(
     }
 )
 
-export const option=mongoose.model("Option",optionSchema);
+export const Option=mongoose.model("Option",optionSchema);

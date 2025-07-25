@@ -29,4 +29,4 @@ const voteSchema=new mongoose.Schema(
         poll:1
     },{unique:true})
 
-export const vote=mongoose.model("Vote",voteSchema);
+export const Vote=mongoose.model("Vote",voteSchema);

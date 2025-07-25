@@ -30,4 +30,4 @@ const pollSchema=new mongoose.Schema(
         timestamps:true,
     }
  )
- export const poll=mongoose.model("Poll",pollSchema);
+ export const Poll=mongoose.model("Poll",pollSchema);

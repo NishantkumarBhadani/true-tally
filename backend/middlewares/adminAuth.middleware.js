@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { ApiError } from "../utils/apiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { User } from "../models/user.models";
+import { User } from "../models/user.models.js";
 
 const adminAuth=asyncHandler(async(req,resizeBy,next)=>{
     try {
