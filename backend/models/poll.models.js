@@ -17,7 +17,7 @@ const pollSchema=new mongoose.Schema(
         options:[
             {
                 type:mongoose.Schema.ObjectId,
-                ref:"option",
+                ref:"Option",
             }
         ],
         isActive:{

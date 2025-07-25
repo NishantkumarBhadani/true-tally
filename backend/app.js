@@ -19,6 +19,12 @@ app.use(cors({
     credentials:true,
 }))
 
+app.set("io", io); // This allows access to io in controller
+
+io.on("connection", (socket) => {
+  console.log("Socket connected:", socket.id);
+});
+
 //Middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true,limit:"16kb"}));
@@ -27,11 +33,18 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 //user route
-// import userRouter from "./routes/user.routes.js";
 import userRouter from "./routes/user.routes.js";
 app.use("/api/v1/users",userRouter);
 
-app.post("/test", (req, res) => {
-    res.json(req.body);
-});
+//poll routes
+import pollRouter from "./routes/poll.routes.js"
+app.use("/api/v1/poll",pollRouter);
+
+//options
+import optionRouter from "./routes/option.routes.js"
+app.use("/api/v1/option",optionRouter); 
+
+//vote
+import voteRouter from "./routes/vote.routes.js"
+app.use("/api/v1/vote",voteRouter);
 export {app};
